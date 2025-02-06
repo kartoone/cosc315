@@ -8,6 +8,7 @@ CREATE TABLE convos (
  credits INT NOT NULL,
  title VARCHAR(255) NOT NULL,
  location VARCHAR(255),
+ eventdate DATETIME NOT NULL,
  cost DECIMAL(10,2) NOT NULL
 );
 

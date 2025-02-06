@@ -21,15 +21,15 @@ UPDATE departments SET chair_id = 3 WHERE id = 3; -- Assign Charlie White as the
 UPDATE departments SET chair_id = 4 WHERE id = 4; -- Assign David Black as the chair for Physics department
 
 -- Sample Data for convos table
-INSERT INTO convos (credits, title, location, cost)
+INSERT INTO convos (credits, title, location, eventdate, cost)
 VALUES
-(3, 'Introduction to Programming', 'Room 101', 500.00),
-(4, 'Data Structures and Algorithms', 'Room 102', 600.00),
-(2, 'Web Development Basics', 'Room 103', 400.00),
-(3, 'Database Systems', 'Room 104', 550.00),
-(4, 'Artificial Intelligence', 'Room 105', 700.00),
-(2, 'Cyber Security Fundamentals', 'Room 106', 450.00),
-(3, 'Networking Essentials', 'Room 107', 500.00);
+(3, 'Sermon on the Mount', 'Reid Chapel', '2025-01-25 08:30:00', 0.0),
+(4, 'Olives in the Bible', 'Hodges Chapel', '2025-01-25 09:00:00', 0.0),
+(2, 'Theology of Sport', 'Seibert Hall Conference Rooms', '2025-01-26 10:15:00', 0.0),
+(4, 'Christian Resources in the Library', 'The Library', '2025-01-26 14:00:00', 0.0),
+(2, 'Christ in the Digital Age', 'Wright Center', '2025-02-01 11:00:00', 0.0),
+(3, 'Social Media Christians', 'Pete Hannah Center', '2025-02-02 14:15:00', 5.0),
+(3, 'The Anxious Generation', 'Wright Center', '2025-02-03 19:00:00', 10.00);
 
 -- Sample Data for students table
 INSERT INTO students (ninenumber, fname, lname, email, faculty_id)
@@ -52,8 +52,8 @@ VALUES
 (4, 4, '2025-01-26 14:00:00'),
 (1, 5, '2025-02-01 11:00:00'),
 (2, 6, '2025-02-02 10:00:00'),
-(5, 3, '2025-02-01 09:30:00'),
-(6, 4, '2025-02-02 14:15:00');
+(5, 3, '2025-01-26 10:15:01'),
+(6, 4, '2025-01-26 14:00:01');
 
 -- Some students haven't attended any convos
 -- (For example, student 7 and 8 haven't attended anything)
