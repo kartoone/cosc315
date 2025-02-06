@@ -32,16 +32,16 @@ VALUES
 (3, 'Networking Essentials', 'Room 107', 500.00);
 
 -- Sample Data for students table
-INSERT INTO students (ninenumber, fname, lname, email)
+INSERT INTO students (ninenumber, fname, lname, email, faculty_id)
 VALUES
-('123456789', 'John', 'Doe', 'john.doe@example.com'),
-('987654321', 'Jane', 'Smith', 'jane.smith@example.com'),
-('456789123', 'Mark', 'Johnson', 'mark.johnson@example.com'),
-('789123456', 'Emily', 'Davis', 'emily.davis@example.com'),
-('234567890', 'Lucas', 'Miller', 'lucas.miller@example.com'),
-('345678901', 'Olivia', 'Wilson', 'olivia.wilson@example.com'),
-('567890123', 'Ethan', 'Moore', 'ethan.moore@example.com'),
-('678901234', 'Sophia', 'Taylor', 'sophia.taylor@example.com');
+('123456789', 'John', 'Doe', 'john.doe@example.com', 1),
+('987654321', 'Jane', 'Smith', 'jane.smith@example.com', 2),
+('456789123', 'Mark', 'Johnson', 'mark.johnson@example.com', 2),
+('789123456', 'Emily', 'Davis', 'emily.davis@example.com', 3),
+('234567890', 'Lucas', 'Miller', 'lucas.miller@example.com', 3),
+('345678901', 'Olivia', 'Wilson', 'olivia.wilson@example.com', 3),
+('567890123', 'Ethan', 'Moore', 'ethan.moore@example.com', 1),
+('678901234', 'Sophia', 'Taylor', 'sophia.taylor@example.com', null);
 
 -- Sample Data for attendance table
 INSERT INTO attendance (student_id, convo_id, scantime)
