@@ -7,10 +7,6 @@ CREATE TABLE public.ads (
 	adtype_id int4 NOT NULL,
 	CONSTRAINT ads_pk PRIMARY KEY (id)
 );
--- public.ads foreign keys
-ALTER TABLE public.ads ADD CONSTRAINT ads_adtypes_fk FOREIGN KEY (adtype_id) REFERENCES public.adtypes(id) ON DELETE RESTRICT;
-
--- public.adtypes definition
 
 -- Drop table
 DROP TABLE IF EXISTS public.adtypes;
@@ -22,10 +18,16 @@ CREATE TABLE public.adtypes (
 	CONSTRAINT adtypes_pk PRIMARY KEY (id)
 );
 
+-- public.ads foreign keys
+ALTER TABLE public.ads ADD CONSTRAINT ads_adtypes_fk FOREIGN KEY (adtype_id) REFERENCES public.adtypes(id) ON DELETE RESTRICT;
+
+-- public.adtypes definition
+
+
 -- public.businesscustomers definition
 
 -- Drop table
-DROP TABLE public.businesscustomers;
+DROP TABLE if exists public.businesscustomers;
 CREATE TABLE public.businesscustomers (
 	id serial4 NOT NULL,
 	"name" varchar NULL,
@@ -47,7 +49,7 @@ CREATE TABLE public.businesscustomers (
 -- public.websitecustomers definition
 
 -- Drop table
-DROP TABLE public.websitecustomers;
+DROP TABLE if exists public.websitecustomers;
 CREATE TABLE public.websitecustomers (
 	id serial4 NOT NULL,
 	"name" varchar NULL,
