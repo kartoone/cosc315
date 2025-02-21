@@ -6,6 +6,7 @@ DROP TABLE if exists public.engagements;
 DROP TABLE if exists public.websites;
 DROP table if exists public.ads;
 DROP TABLE if exists public.websitecustomers;
+DROP TABLE if exists public.websiteowners;
 DROP TABLE if exists public.visitors;
 DROP TABLE if exists public.businesscustomers;
 DROP TABLE if exists public.adtypes;
@@ -63,7 +64,7 @@ CREATE TABLE public.visitors (
 -- Drop table
 
 
-CREATE TABLE public.websitecustomers (
+CREATE TABLE public.websiteowners (
 	id serial4 NOT NULL,
 	"name" varchar NULL,
 	description text NULL,
@@ -76,7 +77,7 @@ CREATE TABLE public.websitecustomers (
 	contact_name varchar NULL,
 	contact_email varchar NULL,
 	contact_phone varchar NULL,
-	CONSTRAINT websitecustomers_pk PRIMARY KEY (id)
+	CONSTRAINT websiteowners_pk PRIMARY KEY (id)
 );
 
 
@@ -101,13 +102,28 @@ CREATE TABLE public.ads (
 -- Drop table
 
 
+-- public.websites definition
+
+-- Drop table
+
+-- DROP TABLE public.websites;
+
 CREATE TABLE public.websites (
 	id serial4 NOT NULL,
-	websitecustomer_id int4 NOT NULL,
-	CONSTRAINT websites_pk PRIMARY KEY (id),
-	CONSTRAINT websites_websitecustomers_fk FOREIGN KEY (websitecustomer_id) REFERENCES public.websitecustomers(id) ON DELETE SET NULL ON UPDATE CASCADE
+	websiteowner_id int4 NOT NULL,
+	"domain" varchar NULL,
+	reputation varchar NULL, -- a number between 0 and 1 where 0 is worst and 1 is better reputation ... determined at signup by evaluating the website in the most effective way possible
+	CONSTRAINT websites_pk PRIMARY KEY (id)
 );
 
+-- Column comments
+
+COMMENT ON COLUMN public.websites.reputation IS 'a number between 0 and 1 where 0 is worst and 1 is better reputation ... determined at signup by evaluating the website in the most effective way possible';
+
+
+-- public.websites foreign keys
+
+ALTER TABLE public.websites ADD CONSTRAINT websites_websitecustomers_fk FOREIGN KEY (websiteowner_id) REFERENCES public.websiteowners(id) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- public.engagements definition
 
