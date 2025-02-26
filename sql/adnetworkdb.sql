@@ -3,6 +3,7 @@
 -- Drop table
 
 DROP TABLE if exists public.engagements;
+DROP TABLE if exists public.websitecategories;
 DROP TABLE if exists public.websites;
 DROP table if exists public.ads;
 DROP TABLE if exists public.websitecustomers;
@@ -10,6 +11,15 @@ DROP TABLE if exists public.websiteowners;
 DROP TABLE if exists public.visitors;
 DROP TABLE if exists public.businesscustomers;
 DROP TABLE if exists public.adtypes;
+DROP TABLE if exists public.categories;
+
+
+CREATE TABLE public.categories (
+	id serial4 NOT NULL,
+	"name" varchar NULL,
+	description text NULL,
+	CONSTRAINT categories_pk PRIMARY KEY (id)
+);
 
 CREATE TABLE public.adtypes (
 	id serial4 NOT NULL,
@@ -120,15 +130,25 @@ CREATE TABLE public.websites (
 
 COMMENT ON COLUMN public.websites.reputation IS 'a number between 0 and 1 where 0 is worst and 1 is better reputation ... determined at signup by evaluating the website in the most effective way possible';
 
-
 -- public.websites foreign keys
 
 ALTER TABLE public.websites ADD CONSTRAINT websites_websitecustomers_fk FOREIGN KEY (websiteowner_id) REFERENCES public.websiteowners(id) ON DELETE SET NULL ON UPDATE CASCADE;
 
--- public.engagements definition
+-- public.websitecategories definition
 
 -- Drop table
 
+-- DROP TABLE public.websitecategories;
+
+CREATE TABLE public.websitecategories (
+	id serial4 NOT NULL,
+	website_id int4 NOT NULL,
+	category_id int4 NOT NULL,
+	priority int4 NULL,
+	CONSTRAINT websitecategories_pk PRIMARY KEY (id),
+	CONSTRAINT websitecategories_categories_fk FOREIGN KEY (category_id) REFERENCES public.categories(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT websitecategories_websites_fk FOREIGN KEY (website_id) REFERENCES public.websites(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 CREATE TABLE public.engagements (
 	id serial4 NOT NULL,
