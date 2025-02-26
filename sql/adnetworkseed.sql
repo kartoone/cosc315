@@ -56,6 +56,22 @@ INSERT INTO public.websites (websiteowner_id, domain, reputation) VALUES
 (3, 'carznow.com', 0.78),
 (4, 'worlddailynews.com', 0.88);
 
+INSERT INTO public.categories (name, description) VALUES
+('Technology', 'Websites related to technology news, trends, and advancements'),
+('E-Commerce', 'Online shopping and retail platforms'),
+('Education', 'Websites offering learning resources and courses'),
+('Entertainment', 'Websites related to movies, music, and games');
+
+INSERT INTO public.websitecategories (website_id, category_id, priority) VALUES
+(1, 1, 1), -- Website 1 in Technology
+(1, 3, 2), -- Website 1 also in Education
+(2, 2, 1), -- Website 2 in E-Commerce
+(2, 4, 2), -- Website 2 also in Entertainment
+(3, 3, 1), -- Website 3 in Education
+(3, 1, 2), -- Website 3 also in Technology
+(4, 4, 1), -- Website 4 in Entertainment
+(4, 2, 2); -- Website 4 also in E-Commerce
+
 -- Insert more data into engagements
 INSERT INTO public.engagements (visitor_id, ad_id, website_id, datevisited, dateclicked, useragent) VALUES
 (1, 1, 1, '2024-02-19 14:00:00+00', '2024-02-19 14:01:30+00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/92.0.4515.159'),
@@ -65,5 +81,21 @@ INSERT INTO public.engagements (visitor_id, ad_id, website_id, datevisited, date
 (5, 5, 5, '2024-02-20 11:45:00+00', '2024-02-20 11:46:50+00', 'Mozilla/5.0 (Windows NT 10.0) Edge/92.0.902.78'),
 (6, 6, 6, '2024-02-20 12:50:00+00', '2024-02-20 12:52:05+00', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/93.0.4577.63'),
 (7, 7, 7, '2024-02-21 14:00:00+00', '2024-02-21 14:01:55+00', 'Mozilla/5.0 (iPad; CPU OS 14_6 like Mac OS X) AppleWebKit/537.36'),
-(8, 8, 8, '2024-02-21 15:10:00+00', '2024-02-21 15:12:20+00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/90.0');
+(8, 8, 8, '2024-02-21 15:10:00+00', '2024-02-21 15:12:20+00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/90.0'),
+(1, 2, 3, '2024-02-22 09:15:00+00', '2024-02-22 09:16:45+00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/92.0.4515.159'),
+(2, 3, 1, '2024-02-22 10:30:00+00', '2024-02-22 10:32:10+00', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_4) Safari/537.36'),
+(3, 4, 2, '2024-02-22 11:45:00+00', '2024-02-22 11:47:30+00', 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/537.36'),
+(4, 5, 5, '2024-02-23 08:00:00+00', '2024-02-23 08:01:20+00', 'Mozilla/5.0 (Linux; Android 11) Mobile Safari/537.36'),
+(5, 6, 4, '2024-02-23 09:10:00+00', '2024-02-23 09:12:05+00', 'Mozilla/5.0 (Windows NT 10.0) Edge/92.0.902.78'),
+(6, 7, 7, '2024-02-23 12:20:00+00', '2024-02-23 12:22:15+00', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/93.0.4577.63'),
+(7, 8, 6, '2024-02-24 14:05:00+00', '2024-02-24 14:06:50+00', 'Mozilla/5.0 (iPad; CPU OS 14_6 like Mac OS X) AppleWebKit/537.36'),
+(8, 1, 8, '2024-02-24 15:30:00+00', '2024-02-24 15:32:10+00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/90.0'),
+(1, 5, 2, '2024-02-25 10:40:00+00', '2024-02-25 10:42:30+00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/92.0.4515.159'),
+(2, 6, 3, '2024-02-25 11:55:00+00', '2024-02-25 11:57:20+00', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_4) Safari/537.36'),
+(3, 7, 4, '2024-02-26 13:05:00+00', '2024-02-26 13:07:45+00', 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/537.36'),
+(4, 8, 1, '2024-02-26 14:20:00+00', '2024-02-26 14:22:15+00', 'Mozilla/5.0 (Linux; Android 11) Mobile Safari/537.36'),
+(5, 1, 6, '2024-02-26 15:35:00+00', '2024-02-26 15:37:00+00', 'Mozilla/5.0 (Windows NT 10.0) Edge/92.0.902.78'),
+(6, 2, 5, '2024-02-27 08:45:00+00', '2024-02-27 08:47:10+00', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/93.0.4577.63'),
+(7, 3, 7, '2024-02-27 09:55:00+00', '2024-02-27 09:57:25+00', 'Mozilla/5.0 (iPad; CPU OS 14_6 like Mac OS X) AppleWebKit/537.36'),
+(8, 4, 8, '2024-02-27 11:10:00+00', '2024-02-27 11:12:50+00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/90.0');
 
