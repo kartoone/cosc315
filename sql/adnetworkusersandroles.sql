@@ -28,3 +28,7 @@ CREATE TABLE public.users (
 
 ALTER TABLE public.users ADD CONSTRAINT users_roles_fk FOREIGN KEY (role_id) REFERENCES public.roles(id) ON DELETE SET NULL ON UPDATE CASCADE;
 
+insert into roles (name) values ('admin'), ('sales'), ('marketing');
+insert into users (role_id, username, "password") values (1,'admin',crypt('test3333', gen_salt('bf')))
+insert into users (role_id, username, "password") values (2,'salesguy',crypt('test2222', gen_salt('bf')))
+insert into users (role_id, username, "password") values (3,'marketer',crypt('test1111', gen_salt('bf')))
