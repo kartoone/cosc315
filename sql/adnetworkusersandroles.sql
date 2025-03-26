@@ -5,14 +5,14 @@
 
 -- Drop table
 
--- DROP TABLE public.roles;
+DROP TABLE IF EXISTS public.users;
+DROP TABLE IF EXISTS public.roles;
 
 CREATE TABLE public.roles (
 	id serial4 NOT NULL,
 	"name" varchar NULL,
 	CONSTRAINT roles_pk PRIMARY KEY (id)
 );
--- DROP TABLE public.users;
 
 CREATE TABLE public.users (
 	id serial4 NOT NULL,
