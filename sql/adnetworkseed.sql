@@ -12,7 +12,7 @@ INSERT INTO public.businesscustomers (name, description, size_employees, size_re
 ('GadgetWorld', 'Online retailer for electronics', 200, 300.2, '456 Tech Street', 'Building 5', 'Austin', '73301', 'TX', 'USA', 'Tom Walker', 'twalker@gadgetworld.com', '+1-512-555-2222'),
 ('FitLife', 'Fitness & wellness services', 150, 120.6, '101 Gym Road', '', 'San Diego', '92101', 'CA', 'USA', 'Emma Lee', 'elee@fitlife.com', '+1-619-555-3333'),
 ('SmartHomes', 'Smart home automation company', 100, 250.4, '987 Innovation Dr', '', 'Boston', '02108', 'MA', 'USA', 'Robert King', 'rking@smarthomes.com', '+1-617-555-4444'),
-('EduLearn', 'Online learning platform', 400, 500.9, '205 Knowledge Blvd', '', 'Seattle', '98101', 'WA', 'USA', 'Sophia Clark', 'sclark@edulearn.com', '+1-206-555-5555');
+('Wendys', 'Fast food chain', 400, 500.9, '205 Knowledge Blvd', '', 'Seattle', '98101', 'WA', 'USA', 'Sophia Clark', 'sclark@wendys.com', '+1-206-555-5555');
 
 -- Insert more data into visitors
 INSERT INTO public.visitors (unique_visitor_id, country, state, zip) VALUES
@@ -99,3 +99,41 @@ INSERT INTO public.engagements (visitor_id, ad_id, website_id, datevisited, date
 (7, 3, 7, '2024-02-27 09:55:00+00', '2024-02-27 09:57:25+00', 'Mozilla/5.0 (iPad; CPU OS 14_6 like Mac OS X) AppleWebKit/537.36'),
 (8, 4, 8, '2024-02-27 11:10:00+00', '2024-02-27 11:12:50+00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/90.0');
 
+-- ad with no campaign yet
+INSERT INTO public.ads (id, title, adtype_id, businesscustomer_id) VALUES
+(9, 'Grand Opening Sale – Limited Time Only!', 1, 2);
+
+-- ad campaigns
+INSERT INTO public.adcampaigns (id, ad_id, date_start, date_stop) VALUES
+(1, 1, '2025-01-01 08:00:00+00', '2025-01-10 23:59:59+00'),
+(2, 2, '2025-01-05 09:00:00+00', '2025-01-15 22:00:00+00'),
+(3, 3, '2025-01-10 00:00:00+00', '2025-01-20 23:59:59+00'),
+(4, 4, '2025-01-12 08:00:00+00', NULL), -- still running
+(5, 5, '2025-01-15 07:30:00+00', '2025-01-25 18:00:00+00'),
+(6, 6, '2025-01-18 10:00:00+00', '2025-01-28 20:00:00+00'),
+(7, 7, '2025-01-20 06:00:00+00', NULL), -- still running
+(8, 8, '2025-01-22 09:00:00+00', '2025-01-29 23:00:00+00');
+
+-- ad campaign categories
+INSERT INTO public.adcampaigncategories (id, adcampaign_id, category_id, negotiatedprice) VALUES
+(1, 1, 1, 150.00),
+(2, 1, 2, 100.00),
+(3, 2, 2, 120.50),
+(4, 2, 3, 110.75),
+(5, 3, 1, 95.00),
+(6, 3, 4, NULL),
+(7, 4, 3, 130.00),
+(8, 5, 1, 160.00),
+(9, 5, 2, 155.00),
+(10, 5, 3, NULL),
+(11, 6, 4, 200.00),
+(12, 7, 2, 175.50),
+(13, 8, 1, NULL),
+(14, 8, 3, 180.00),
+(15, 8, 4, 190.00);
+
+insert into roles (name) values ('admin'), ('sales'), ('businesscustomer');
+insert into users (role_id, username, "password") values (1,'admin',crypt('test3333', gen_salt('bf')));
+insert into users (role_id, username, "password") values (2,'willie',crypt('test2222', gen_salt('bf')));
+insert into users (role_id, businesscustomer_id, username, "password") values (3,3,'sally',crypt('test4444', gen_salt('bf')));
+insert into users (role_id, businesscustomer_id, username, "password") values (3,3,'wendys',crypt('test1111', gen_salt('bf')));
