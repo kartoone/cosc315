@@ -2,6 +2,8 @@
 
 -- Drop table
 
+DROP TABLE if exists public.adcampaigncategories;
+DROP TABLE if exists public.adcampaigns;
 DROP TABLE if exists public.engagements;
 DROP TABLE if exists public.websitecategories;
 DROP TABLE if exists public.websites;
@@ -12,7 +14,14 @@ DROP TABLE if exists public.visitors;
 DROP TABLE if exists public.businesscustomers;
 DROP TABLE if exists public.adtypes;
 DROP TABLE if exists public.categories;
+DROP TABLE IF EXISTS public.roles;
+DROP TABLE IF EXISTS public.users;
 
+CREATE TABLE public.roles (
+	id serial4 NOT NULL,
+	"name" varchar NULL,
+	CONSTRAINT roles_pk PRIMARY KEY (id)
+);
 
 CREATE TABLE public.categories (
 	id serial4 NOT NULL,
@@ -53,6 +62,20 @@ CREATE TABLE public.businesscustomers (
 	CONSTRAINT businesscustomers_pk PRIMARY KEY (id)
 );
 
+CREATE TABLE public.users (
+	id serial4 NOT NULL,
+	role_id int4 NULL,
+	businesscustomer_id int4 NULL,
+	username varchar NULL,
+	"password" varchar NULL,
+	CONSTRAINT users_pk PRIMARY KEY (id),
+	CONSTRAINT users_unique UNIQUE (username)
+);
+
+-- public.users foreign keys
+
+ALTER TABLE public.users ADD CONSTRAINT users_roles_fk FOREIGN KEY (role_id) REFERENCES public.roles(id) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE public.users ADD CONSTRAINT bc_fk FOREIGN KEY (businesscustomer_id) REFERENCES public.businesscustomers(id) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- public.visitors definition
 
