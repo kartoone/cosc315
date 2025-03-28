@@ -11,10 +11,10 @@ DROP table if exists public.ads;
 DROP TABLE if exists public.websitecustomers;
 DROP TABLE if exists public.websiteowners;
 DROP TABLE if exists public.visitors;
-DROP TABLE if exists public.businesscustomers;
 DROP TABLE if exists public.adtypes;
 DROP TABLE if exists public.categories;
 DROP TABLE IF EXISTS public.users;
+DROP TABLE if exists public.businesscustomers;
 DROP TABLE IF EXISTS public.roles;
 
 CREATE TABLE public.roles (
@@ -129,6 +129,31 @@ CREATE TABLE public.ads (
 	CONSTRAINT ads_businesscustomers_fk FOREIGN KEY (businesscustomer_id) REFERENCES public.businesscustomers(id) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
+CREATE TABLE public.adcampaigns (
+	id serial4 NOT NULL,
+	ad_id int4 NOT NULL,
+	date_start timestamptz NULL,
+	date_stop timestamptz NULL,
+	CONSTRAINT adcampaigns_pk PRIMARY KEY (id)
+);
+
+CREATE TABLE public.adcampaigncategories (
+	id serial4 NOT NULL,
+	adcampaign_id int4 NOT NULL,
+	category_id int4 NOT NULL,
+	negotiatedprice float4 NULL,
+	CONSTRAINT adcampaigncategories_pk PRIMARY KEY (id)
+);
+
+
+-- public.adcampaigncategories foreign keys
+
+ALTER TABLE public.adcampaigncategories ADD CONSTRAINT adcampaigncategories_adcampaigns_fk FOREIGN KEY (adcampaign_id) REFERENCES public.adcampaigns(id);
+ALTER TABLE public.adcampaigncategories ADD CONSTRAINT adcampaigncategories_categories_fk FOREIGN KEY (category_id) REFERENCES public.categories(id);
+
+-- public.adcampaigns foreign keys
+
+ALTER TABLE public.adcampaigns ADD CONSTRAINT adcampaigns_ads_fk FOREIGN KEY (ad_id) REFERENCES public.ads(id);
 
 -- public.websites definition
 
