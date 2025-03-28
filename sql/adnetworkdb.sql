@@ -14,8 +14,8 @@ DROP TABLE if exists public.visitors;
 DROP TABLE if exists public.businesscustomers;
 DROP TABLE if exists public.adtypes;
 DROP TABLE if exists public.categories;
-DROP TABLE IF EXISTS public.roles;
 DROP TABLE IF EXISTS public.users;
+DROP TABLE IF EXISTS public.roles;
 
 CREATE TABLE public.roles (
 	id serial4 NOT NULL,
