@@ -34,16 +34,33 @@ INSERT INTO public.websiteowners (name, description, mail_addr1, mail_addr2, mai
 ('AutoDeals', 'Car sales and rentals', '999 Motorway Dr', '', 'Detroit', '48201', 'MI', 'USA', 'James Carter', 'jcarter@autodeals.com', '+1-313-555-9999'),
 ('GlobalNews', '24/7 news portal', '111 News Lane', '', 'New York', '10036', 'NY', 'USA', 'Anna White', 'awhite@globalnews.com', '+1-212-555-1010');
 
--- Insert more data into ads
-INSERT INTO public.ads (title, adtype_id, businesscustomer_id) VALUES
-('GadgetWorld Tech Sale', 1, 1),
-('FitLife Gym Discount', 2, 2),
-('SmartHomes Home Automation', 3, 3),
-('EduLearn New Courses', 4, 4),
-('GadgetWorld New Arrivals', 5, 1),
-('FitLife Summer Membership', 6, 2),
-('SmartHomes Energy Saving', 3, 3),
-('EduLearn AI Certification', 4, 4);
+INSERT INTO public.ads
+(id, title, adtype_id, businesscustomer_id)
+VALUES(1, 'GadgetWorld Tech Sale', 1, 1);
+INSERT INTO public.ads
+(id, title, adtype_id, businesscustomer_id)
+VALUES(2, 'FitLife Gym Discount', 2, 2);
+INSERT INTO public.ads
+(id, title, adtype_id, businesscustomer_id)
+VALUES(3, 'Clean and fresh', 3, 3);
+INSERT INTO public.ads
+(id, title, adtype_id, businesscustomer_id)
+VALUES(4, 'Good old fashioned burgers', 4, 3);
+INSERT INTO public.ads
+(id, title, adtype_id, businesscustomer_id)
+VALUES(5, 'Superbowl "superbuns" commercial', 5, 3);
+INSERT INTO public.ads
+(id, title, adtype_id, businesscustomer_id)
+VALUES(6, 'New homemade buns', 6, 3);
+INSERT INTO public.ads
+(id, title, adtype_id, businesscustomer_id)
+VALUES(7, 'Our fries are the best', 3, 3);
+INSERT INTO public.ads
+(id, title, adtype_id, businesscustomer_id)
+VALUES(8, 'Where''s the beef promotion', 4, 3);
+INSERT INTO public.ads
+(id, title, adtype_id, businesscustomer_id)
+VALUES(9, 'New chicken meal promo', 1, 3);
 
 -- Insert more data into websites with domain and reputation
 INSERT INTO public.websites (websiteowner_id, domain, reputation) VALUES
@@ -98,10 +115,6 @@ INSERT INTO public.engagements (visitor_id, ad_id, website_id, datevisited, date
 (6, 2, 5, '2024-02-27 08:45:00+00', '2024-02-27 08:47:10+00', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/93.0.4577.63'),
 (7, 3, 7, '2024-02-27 09:55:00+00', '2024-02-27 09:57:25+00', 'Mozilla/5.0 (iPad; CPU OS 14_6 like Mac OS X) AppleWebKit/537.36'),
 (8, 4, 8, '2024-02-27 11:10:00+00', '2024-02-27 11:12:50+00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/90.0');
-
--- ad with no campaign yet
-INSERT INTO public.ads (id, title, adtype_id, businesscustomer_id) VALUES
-(9, 'Grand Opening Sale – Limited Time Only!', 1, 2);
 
 -- ad campaigns
 INSERT INTO public.adcampaigns (id, ad_id, date_start, date_stop) VALUES
