@@ -35,32 +35,32 @@ INSERT INTO public.websiteowners (name, description, mail_addr1, mail_addr2, mai
 ('GlobalNews', '24/7 news portal', '111 News Lane', '', 'New York', '10036', 'NY', 'USA', 'Anna White', 'awhite@globalnews.com', '+1-212-555-1010');
 
 INSERT INTO public.ads
-(id, title, adtype_id, businesscustomer_id)
-VALUES(1, 'GadgetWorld Tech Sale', 1, 1);
+(title, adtype_id, businesscustomer_id)
+VALUES('GadgetWorld Tech Sale', 1, 1);
 INSERT INTO public.ads
 (id, title, adtype_id, businesscustomer_id)
-VALUES(2, 'FitLife Gym Discount', 2, 2);
+VALUES('FitLife Gym Discount', 2, 2);
 INSERT INTO public.ads
 (id, title, adtype_id, businesscustomer_id)
-VALUES(3, 'Clean and fresh', 3, 3);
+VALUES('Clean and fresh', 3, 3);
 INSERT INTO public.ads
 (id, title, adtype_id, businesscustomer_id)
-VALUES(4, 'Good old fashioned burgers', 4, 3);
+VALUES('Good old fashioned burgers', 4, 3);
 INSERT INTO public.ads
 (id, title, adtype_id, businesscustomer_id)
-VALUES(5, 'Superbowl "superbuns" commercial', 5, 3);
+VALUES('Superbowl "superbuns" commercial', 5, 3);
 INSERT INTO public.ads
 (id, title, adtype_id, businesscustomer_id)
-VALUES(6, 'New homemade buns', 6, 3);
+VALUES('New homemade buns', 6, 3);
 INSERT INTO public.ads
 (id, title, adtype_id, businesscustomer_id)
-VALUES(7, 'Our fries are the best', 3, 3);
+VALUES('Our fries are the best', 3, 3);
 INSERT INTO public.ads
 (id, title, adtype_id, businesscustomer_id)
-VALUES(8, 'Where''s the beef promotion', 4, 3);
+VALUES('Where''s the beef promotion', 4, 3);
 INSERT INTO public.ads
 (id, title, adtype_id, businesscustomer_id)
-VALUES(9, 'New chicken meal promo', 1, 3);
+VALUES('New chicken meal promo', 1, 3);
 
 -- Insert more data into websites with domain and reputation
 INSERT INTO public.websites (websiteowner_id, domain, reputation) VALUES
