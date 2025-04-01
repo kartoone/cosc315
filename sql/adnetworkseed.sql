@@ -36,31 +36,16 @@ INSERT INTO public.websiteowners (name, description, mail_addr1, mail_addr2, mai
 
 INSERT INTO public.ads
 (title, adtype_id, businesscustomer_id)
-VALUES('GadgetWorld Tech Sale', 1, 1);
-INSERT INTO public.ads
-(id, title, adtype_id, businesscustomer_id)
-VALUES('FitLife Gym Discount', 2, 2);
-INSERT INTO public.ads
-(id, title, adtype_id, businesscustomer_id)
-VALUES('Clean and fresh', 3, 3);
-INSERT INTO public.ads
-(id, title, adtype_id, businesscustomer_id)
-VALUES('Good old fashioned burgers', 4, 3);
-INSERT INTO public.ads
-(id, title, adtype_id, businesscustomer_id)
-VALUES('Superbowl "superbuns" commercial', 5, 3);
-INSERT INTO public.ads
-(id, title, adtype_id, businesscustomer_id)
-VALUES('New homemade buns', 6, 3);
-INSERT INTO public.ads
-(id, title, adtype_id, businesscustomer_id)
-VALUES('Our fries are the best', 3, 3);
-INSERT INTO public.ads
-(id, title, adtype_id, businesscustomer_id)
-VALUES('Where''s the beef promotion', 4, 3);
-INSERT INTO public.ads
-(id, title, adtype_id, businesscustomer_id)
-VALUES('New chicken meal promo', 1, 3);
+VALUES
+  ('GadgetWorld Tech Sale', 1, 1),
+  ('FitLife Gym Discount', 2, 2),
+  ('Clean and fresh', 3, 3),
+  ('Good old fashioned burgers', 4, 3),
+  ('Superbowl "superbuns" commercial', 5, 3),
+  ('New homemade buns', 6, 3),
+  ('Our fries are the best', 3, 3),
+  ('Where''s the beef promotion', 4, 3),
+  ('New chicken meal promo', 1, 3);
 
 -- Insert more data into websites with domain and reputation
 INSERT INTO public.websites (websiteowner_id, domain, reputation) VALUES
